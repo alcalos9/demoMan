@@ -1,4 +1,5 @@
 package com.example.man.demoMan.model.crud.response;
+/*package ec.com.bancointernacional.model.crud.response;*/
 
 import java.util.Date;
 

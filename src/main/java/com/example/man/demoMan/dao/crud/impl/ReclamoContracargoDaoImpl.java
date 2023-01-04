@@ -1,4 +1,5 @@
 package com.example.man.demoMan.dao.crud.impl;
+/*package ec.com.bancointernacional.dao.crud.impl;*/
 
 import java.util.ArrayList;
 import java.util.List;

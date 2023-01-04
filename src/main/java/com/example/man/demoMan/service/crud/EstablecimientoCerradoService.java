@@ -1,4 +1,5 @@
 package com.example.man.demoMan.service.crud;
+/*package ec.com.bancointernacional.service.crud;*/
 
 
 import com.example.man.demoMan.model.crud.request.EstablecimientoCerradoRequest;

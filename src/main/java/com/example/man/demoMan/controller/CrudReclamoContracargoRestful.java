@@ -1,4 +1,5 @@
 package com.example.man.demoMan.controller;
+/*package ec.com.bancointernacional.srv.rest;*/
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

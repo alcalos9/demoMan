@@ -1,6 +1,5 @@
 package com.example.man.demoMan.model.crud.request;
-
-import java.util.Date;
+/*package ec.com.bancointernacional.model.crud.request;*/
 
 public class EstablecimientoCerradoRequest {
 
