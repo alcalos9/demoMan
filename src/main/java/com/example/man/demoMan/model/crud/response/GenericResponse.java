@@ -1,8 +1,6 @@
-package ec.com.bancointernacional.model.crud.response;
+package com.example.man.demoMan.model.crud.response;
 
-import ec.com.bancointernacional.model.crud.request.EstablecimientoCerradoRequest;
-
-public class EstablecimientoCerradoResponse {
+public class GenericResponse {
 
 	private int messageId;
 	

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/inicio2")
+@RequestMapping("/inicio")
 
 public class Controller {
 
@@ -15,6 +15,6 @@ public class Controller {
 	@GetMapping(value = "/in")
 	public ResponseEntity<?> init(){
 		System.out.println("Hola Mundo");
-		return new ResponseEntity<String>("OK2", HttpStatus.OK);
+		return new ResponseEntity<String>("OK", HttpStatus.OK);
 	}
 }

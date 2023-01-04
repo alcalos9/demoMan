@@ -1,8 +1,8 @@
-package ec.com.bancointernacional.model.crud;
+package com.example.man.demoMan.model.crud.response;
 
 import java.util.Date;
 
-public class Match {
+public class MatchGetResponse {
 
 	private Integer matId;
 	private String matNomComercio;
