@@ -131,6 +131,7 @@ public class ReclamoContracargoDaoImpl implements ReclamoContracargoDao {
 			DataSource ds = DataSourceAs400.getDataSource();
 			conn = ds.getConnection();
 			PreparedStatement ps = conn.prepareStatement(ApplicationEjb.getString("app.select.crud.reclamo", ApplicationEjb.getString("aes.util.lib")));
+			ps.setString(1, name);
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -183,6 +184,8 @@ public class ReclamoContracargoDaoImpl implements ReclamoContracargoDao {
 				ps.setDate(5, new java.sql.Date(reclamoContracargo.getRecFecCrea().getTime()));
 			if (reclamoContracargo.getRecFecAct() != null)
 				ps.setDate(6, new java.sql.Date(reclamoContracargo.getRecFecAct().getTime()));
+			if (reclamoContracargo.getRecId() != null)
+				ps.setInt(7, reclamoContracargo.getRecId());
 
 			int row = ps.executeUpdate();
 
@@ -208,7 +211,7 @@ public class ReclamoContracargoDaoImpl implements ReclamoContracargoDao {
 	}
 
 	@Override
-	public ReclamoContracargo getById(Integer name) {
+	public ReclamoContracargo getById(Integer id) {
 		ReclamoContracargo response = new ReclamoContracargo();
 		/*Connection conn = null;
 		
@@ -216,6 +219,7 @@ public class ReclamoContracargoDaoImpl implements ReclamoContracargoDao {
 			DataSource ds = DataSourceAs400.getDataSource();
 			conn = ds.getConnection();
 			PreparedStatement ps = conn.prepareStatement(ApplicationEjb.getString("app.selectId.crud.reclamo", ApplicationEjb.getString("aes.util.lib")));
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.man.demoMan.dao.crud.ReclamoContracargoDao;
+import com.example.man.demoMan.model.crud.Match;
 import com.example.man.demoMan.model.crud.ReclamoContracargo;
 import com.example.man.demoMan.model.crud.request.ReclamoContracargoRequest;
 import com.example.man.demoMan.model.crud.response.GenericResponse;
@@ -200,8 +201,43 @@ public class ReclamoContracargoServiceImpl implements ReclamoContracargoService 
 		return response;
 	}
 	
-	private ReclamoContracargo validate(ReclamoContracargoRequest reclamoContracargoRequest, int i) {
-		// TODO Auto-generated method stub
+	private ReclamoContracargo validate(ReclamoContracargoRequest reclamoContracargoRequest, int option) {
+		
+		ReclamoContracargo reclamoContracargo = new ReclamoContracargo();
+
+		try {
+			
+			Date date = Date.from(Instant.now());
+
+			reclamoContracargo.setRecNomComercio(reclamoContracargoRequest.getRecNomComercio());
+			reclamoContracargo.setRecCodPais(reclamoContracargoRequest.getRecCodPais());
+			reclamoContracargo.setRecUsuario(getUser());
+			
+			if (option == 1) {
+				//CREA
+				reclamoContracargo.setRecEstado("A");
+				reclamoContracargo.setRecFecCrea(date);
+			
+			} else {
+				if (option == 2) {
+					//Actualiza
+					reclamoContracargo.setRecFecAct(date);
+				} else {
+					reclamoContracargo.setRecEstado("X");
+					reclamoContracargo.setRecFecAct(date);
+				}
+			}
+
+			return reclamoContracargo;
+
+		} catch (Exception e) {
+			System.out.println("Error al obtener un dato para crear reclamo contracargo");
+			return null;
+		}
+	}
+	
+	private String getUser() {
+		// TODO Obgener el usuario actual
 		return null;
 	}
 

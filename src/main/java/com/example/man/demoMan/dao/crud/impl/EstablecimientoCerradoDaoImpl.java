@@ -118,7 +118,7 @@ public class EstablecimientoCerradoDaoImpl implements EstablecimientoCerradoDao 
 			while (rs.next()) {
 				EstablecimientoCerradoGetResponse est = new EstablecimientoCerradoGetResponse();
 				est.setEstAsesor(rs.getString("ESTCLAS"));
-				est.setEstBancoInt(rs.getBoolean("ESTCLBI"));
+				est.setEstBancoInt(rs.getBoolean("ESTCLAS"));
 				est.setEstCedProp(rs.getString("ESTCLID"));
 				est.setEstCodActEco(rs.getString("ESTCLBU"));
 				est.setEstCodCiudad(rs.getInt("ESTCLCTY"));

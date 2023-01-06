@@ -134,6 +134,7 @@ public class MatchDaoImpl implements MatchDao {
 			DataSource ds = DataSourceAs400.getDataSource();
 			conn = ds.getConnection();
 			PreparedStatement ps = conn.prepareStatement(ApplicationEjb.getString("app.select.crud.match", ApplicationEjb.getString("aes.util.lib")));
+			ps.setString(1, name);
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -189,6 +190,8 @@ public class MatchDaoImpl implements MatchDao {
 				ps.setDate(6, new java.sql.Date(match.getMatFecAct().getTime()));
 			if (match.getMatUsuario() != null)
 				ps.setString(7, match.getMatUsuario());
+			if (match.getMatId() != null)
+				ps.setInt(8, match.getMatId());
 
 			int row = ps.executeUpdate();
 
@@ -214,7 +217,7 @@ public class MatchDaoImpl implements MatchDao {
 	}
 
 	@Override
-	public Match getById(Integer name) {
+	public Match getById(Integer id) {
 		Match response = new Match();
 		/*Connection conn = null;
 		
@@ -222,6 +225,7 @@ public class MatchDaoImpl implements MatchDao {
 			DataSource ds = DataSourceAs400.getDataSource();
 			conn = ds.getConnection();
 			PreparedStatement ps = conn.prepareStatement(ApplicationEjb.getString("app.selectId.crud.match", ApplicationEjb.getString("aes.util.lib")));
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
